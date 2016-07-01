@@ -1,0 +1,21 @@
+diff -uNr sakura-3.3.4.orig/src/sakura.c sakura-3.3.4/src/sakura.c
+--- sakura-3.3.4.orig/src/sakura.c	2016-07-01 14:31:47.506824563 +0300
++++ sakura-3.3.4/src/sakura.c	2016-07-01 14:37:17.154846474 +0300
+@@ -1903,7 +1903,7 @@
+ 
+ 		sprintf(temp_name, "colorset%d_fore", i+1);
+ 		if (!g_key_file_has_key(sakura.cfg, cfg_group, temp_name, NULL)) {
+-			sakura_set_config_string(temp_name, "rgb(192,192,192)");
++			sakura_set_config_string(temp_name, "rgb(255,255,255)");
+ 		}
+ 		cfgtmp = g_key_file_get_value(sakura.cfg, cfg_group, temp_name, NULL);
+ 		gdk_rgba_parse(&sakura.forecolors[i], cfgtmp);
+@@ -1911,7 +1911,7 @@
+ 
+ 		sprintf(temp_name, "colorset%d_back", i+1);
+ 		if (!g_key_file_has_key(sakura.cfg, cfg_group, temp_name, NULL)) {
+-			sakura_set_config_string(temp_name, "rgba(0,0,0,1)");
++			sakura_set_config_string(temp_name, "rgb(46,52,54)");
+ 		}
+ 		cfgtmp = g_key_file_get_value(sakura.cfg, cfg_group, temp_name, NULL);
+ 		gdk_rgba_parse(&sakura.backcolors[i], cfgtmp);

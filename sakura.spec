@@ -2,7 +2,7 @@
 
 Name:           sakura
 Version:        3.3.4
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Terminal emulator based on GTK and VTE
 
 Group:          User Interface/X
@@ -10,6 +10,7 @@ License:        GPLv2
 URL:            https://launchpad.net/sakura
 Source0:        https://launchpad.net/sakura/trunk/%{version}/+download/sakura-%{version}.tar.bz2
 Patch0:         0001-default-font.patch
+Patch1:         0002-default-colors.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  pkgconfig(glib-2.0) >= 2.20
@@ -26,6 +27,7 @@ have a decent terminal emulator.
 %prep
 %setup -q
 %patch0 -p1 -b .default-font
+%patch1 -p1 -b .default-colors
 
 
 %build
@@ -65,6 +67,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Fri Jul 01 2016 Jajauma's Packages <jajauma@yandex.ru> - 3.3.4-3
+- Change hardcoded default colors
+
 * Wed Feb 17 2016 Jajauma's Packages <jajauma@yandex.ru> - 3.3.4-2
 - Change hardcoded default font
 
