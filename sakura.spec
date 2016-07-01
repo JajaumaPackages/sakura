@@ -1,7 +1,7 @@
 # Review at https://bugzilla.redhat.com/show_bug.cgi?id=496166
 
 Name:           sakura
-Version:        3.2.0
+Version:        3.3.4
 Release:        2%{?dist}
 Summary:        Terminal emulator based on GTK and VTE
 
@@ -9,21 +9,23 @@ Group:          User Interface/X
 License:        GPLv2
 URL:            https://launchpad.net/sakura
 Source0:        https://launchpad.net/sakura/trunk/%{version}/+download/sakura-%{version}.tar.bz2
+Patch0:         0001-default-font.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  pkgconfig(glib-2.0) >= 2.20
 BuildRequires:  pkgconfig(gtk+-3.0)
-BuildRequires:  pkgconfig(vte-2.90)
+BuildRequires:  pkgconfig(vte-2.91)
 BuildRequires:  cmake desktop-file-utils gettext /usr/bin/pod2man
 
 %description
-Sakura is a terminal emulator based on GTK and VTE. It's a terminal emulator 
-with few dependencies, so you don't need a full GNOME desktop installed to 
+Sakura is a terminal emulator based on GTK and VTE. It's a terminal emulator
+with few dependencies, so you don't need a full GNOME desktop installed to
 have a decent terminal emulator.
 
 
 %prep
 %setup -q
+%patch0 -p1 -b .default-font
 
 
 %build
@@ -63,14 +65,14 @@ rm -rf %{buildroot}
 
 
 %changelog
-* Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 3.2.0-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+* Wed Feb 17 2016 Jajauma's Packages <jajauma@yandex.ru> - 3.3.4-2
+- Change hardcoded default font
 
-* Wed Jul 01 2015 Christoph Wickert <cwickert@fedoraproject.org> - 3.2.0-1
-- Update to 3.2.0 (#1173077)
+* Sun Jan 31 2016 Jajauma's Packages <jajauma@yandex.ru> - 3.3.4-1
+- Update to latest upstream release
 
-* Fri Jun 19 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 3.1.5-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
+* Sat May 30 2015 Jajauma's Packages <jajauma@yandex.ru> - 3.2.0-1
+- Update to latest upstream release
 
 * Mon Aug 18 2014 Christoph Wickert <cwickert@fedoraproject.org> - 3.1.5-1
 - Update to 3.1.5 (#1112288)
@@ -175,7 +177,7 @@ rm -rf %{buildroot}
 
 * Fri Jun 06 2008 Christoph Wickert <cwickert@fedoraproject.org> - 2.1.2-1
 - Update to 2.1.2
-- No test configuration, disable %%check temporarily 
+- No test configuration, disable %%check temporarily
 
 * Mon May 12 2008 Christoph Wickert <cwickert@fedoraproject.org> - 2.1.0-1
 - Update to 2.1.0

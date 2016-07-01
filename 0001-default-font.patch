@@ -1,0 +1,12 @@
+diff -uNr sakura-3.3.4.orig/src/sakura.c sakura-3.3.4/src/sakura.c
+--- sakura-3.3.4.orig/src/sakura.c	2016-02-17 22:33:28.321039352 +0300
++++ sakura-3.3.4/src/sakura.c	2016-02-17 22:33:45.133602769 +0300
+@@ -315,7 +315,7 @@
+ #define DEFAULT_CONFIGFILE "sakura.conf"
+ #define DEFAULT_COLUMNS 80
+ #define DEFAULT_ROWS 24
+-#define DEFAULT_FONT "Ubuntu Mono,monospace 13"
++#define DEFAULT_FONT "monospace 11"
+ #define FONT_MINIMAL_SIZE (PANGO_SCALE*6)
+ #define DEFAULT_PALETTE "solarized_dark"
+ #define TAB_MAX_SIZE 40
